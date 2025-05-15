@@ -1,13 +1,13 @@
-import grassVsh from "../shaders/grass.vert?raw";
-import grassFsh from "../shaders/grass.frag?raw";
-import terrainLightVsh from "../shaders/terrain-lighting-model-vsh.glsl?raw";
-import terrainLightFsh from "../shaders/terrain-lighting-model-fsh.glsl?raw";
-import skyVsh from "../shaders/sky.vert?raw";
-import skyFsh from "../shaders/sky.frag?raw";
-import common from "../shaders/common.glsl?raw";
-import oklab from "../shaders/oklab.glsl?raw";
-import noise from "../shaders/noise.glsl?raw";
-import sky from "../shaders/sky.glsl?raw";
+import grassVsh from "./shaders/grass.vert?raw";
+import grassFsh from "./shaders/grass.frag?raw";
+import terrainVsh from "./shaders/terrain.vert?raw";
+import terrainFsh from "./shaders/terrain.frag?raw";
+import skyVsh from "./shaders/sky.vert?raw";
+import skyFsh from "./shaders/sky.frag?raw";
+import common from "./shaders/common.glsl?raw";
+import oklab from "./shaders/oklab.glsl?raw";
+import noise from "./shaders/noise.glsl?raw";
+import sky from "./shaders/sky.glsl?raw";
 import {
   MeshPhongMaterial,
   MeshStandardMaterial,
@@ -29,8 +29,8 @@ shaderCode["GRASS"] = {
 };
 
 shaderCode["TERRAIN"] = {
-  vsh: loadShader(terrainLightVsh),
-  fsh: loadShader(terrainLightFsh),
+  vsh: loadShader(terrainVsh),
+  fsh: loadShader(terrainFsh),
 };
 
 shaderCode["SKY"] = {

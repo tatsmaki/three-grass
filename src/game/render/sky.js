@@ -1,5 +1,5 @@
 import { BackSide, Mesh, SphereGeometry } from "three";
-import * as shaders from "./shaders.js";
+import * as shaders from "../../shaders.js";
 
 const uniforms = {
   time: { value: 0.0 },

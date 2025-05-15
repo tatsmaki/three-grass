@@ -1,4 +1,4 @@
-import * as shaders from "../../game/render/shaders.js";
+import * as shaders from "../../shaders.js";
 import { GRASS_PATCH_SIZE, createGrassGeo } from "./grass_geo.js";
 import {
   Box3,

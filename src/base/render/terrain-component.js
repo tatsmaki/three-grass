@@ -1,4 +1,4 @@
-import * as shaders from "../../game/render/shaders.js";
+import * as shaders from "../../shaders.js";
 
 import { Mesh, PlaneGeometry, Vector4 } from "three";
 
