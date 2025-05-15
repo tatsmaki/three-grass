@@ -130,8 +130,6 @@ export const renderGrass = (camera, time) => {
   data.grassMaterialLow.setFloat("time", time);
   data.grassMaterialHigh.setFloat("time", time);
 
-  // const threejs = this.FindEntity("threejs").GetComponent("ThreeJSController");
-  // const camera = threejs.Camera;
   const frustum = new Frustum().setFromProjectionMatrix(
     M_TMP.copy(camera.projectionMatrix).multiply(camera.matrixWorldInverse)
   );

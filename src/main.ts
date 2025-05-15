@@ -1,12 +1,11 @@
 import { init } from "./init";
 import "./global.css";
+import { onWindowResize } from "./base/threejs-component";
 
-const canvas = document.getElementById("canvas");
+init();
 
-const controller = init(canvas);
-
-controller.onWindowResize();
+onWindowResize();
 
 window.addEventListener("resize", () => {
-  controller.onWindowResize();
+  onWindowResize();
 });
