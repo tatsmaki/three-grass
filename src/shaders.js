@@ -8,14 +8,9 @@ import common from "./shaders/common.glsl?raw";
 import oklab from "./shaders/oklab.glsl?raw";
 import noise from "./shaders/noise.glsl?raw";
 import sky from "./shaders/sky.glsl?raw";
-import {
-  MeshPhongMaterial,
-  MeshStandardMaterial,
-  ShaderMaterial as ThreeShaderMaterial,
-  Vector3,
-} from "three";
+import { MeshPhongMaterial, MeshStandardMaterial, Vector3 } from "three";
 
-const shaderCode = {};
+export const shaderCode = {};
 
 const globalShadersCode = [common, oklab, noise, sky].join("\n");
 
@@ -37,15 +32,6 @@ shaderCode["SKY"] = {
   vsh: loadShader(skyVsh),
   fsh: loadShader(skyFsh),
 };
-
-export class ShaderMaterial extends ThreeShaderMaterial {
-  constructor(shaderType, parameters) {
-    parameters.vertexShader = shaderCode[shaderType].vsh;
-    parameters.fragmentShader = shaderCode[shaderType].fsh;
-
-    super(parameters);
-  }
-}
 
 export class GamePBRMaterial extends MeshStandardMaterial {
   #uniforms_ = {};
