@@ -1,6 +1,5 @@
 import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
-
 import { FXAAShader } from "three/addons/shaders/FXAAShader.js";
 
 import { DataUtils } from "three";

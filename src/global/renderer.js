@@ -37,21 +37,6 @@ const GammaCorrectionShader2 = {
   fragmentShader: gammaFrag,
 };
 
-class FakeCSM {
-  constructor() {
-    this.lights = [
-      {
-        color: new Color(0xffffff),
-        lightDirection: new Vector3(1, 0, 0),
-      },
-    ];
-    this.lightDirection = new Vector3(1, 0, 0);
-  }
-  setupMaterial() {}
-  updateFrustums() {}
-  update() {}
-}
-
 export const renderer = new WebGLRenderer({
   canvas: document.getElementById("canvas"),
   antialias: true,
@@ -83,15 +68,6 @@ light.shadow.camera.bottom = -32;
 const lightDir = light.position.clone();
 lightDir.normalize();
 lightDir.multiplyScalar(-1);
-
-const csm = new FakeCSM();
-for (let i = 0; i < csm.lights.length; i++) {
-  csm.lights[i].color.copy(LIGHT_COLOUR);
-}
-csm.updateFrustums();
-// csm.setupMaterial(material);
-
-const sun = light;
 
 const bufferParams = {
   type: HalfFloatType,
@@ -153,13 +129,6 @@ export const render = (timeElapsedS) => {
   gammaPass.render(renderer, null, readBuffer, timeElapsedS, false);
 };
 
-// Update() {
-//   this.#csm_.update();
-
-//   this.sun_.updateMatrixWorld();
-//   this.sun_.target.updateMatrixWorld();
-// }
-
 export const onWindowResize = () => {
   const canvasWidth = window.innerWidth;
   const canvasHeight = window.innerHeight;
@@ -175,6 +144,4 @@ export const onWindowResize = () => {
 
   fxaaPass.material.uniforms["resolution"].value.x = 1 / canvasWidth;
   fxaaPass.material.uniforms["resolution"].value.y = 1 / canvasHeight;
-
-  csm.updateFrustums();
 };
