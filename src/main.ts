@@ -1,6 +1,6 @@
 import { init } from "./init";
 import "./global.css";
-import { onWindowResize } from "./base/threejs-component";
+import { onWindowResize } from "./global/renderer";
 
 init();
 

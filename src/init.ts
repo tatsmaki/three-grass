@@ -1,7 +1,7 @@
 import { light } from "./base/render/hemi-light";
 import { createGrass, renderGrass } from "./base/render/grass-component";
 import { createTerrain } from "./base/render/terrain-component";
-import { render, renderer } from "./base/threejs-component";
+import { render, renderer } from "./global/renderer";
 import { scene } from "./global/scene";
 import { camera } from "./global/camera";
 import { renderSky, sky } from "./objects/sky";

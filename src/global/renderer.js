@@ -1,4 +1,4 @@
-import { RenderPass, ShaderPass, FXAAShader } from "./three-defs.js";
+import { RenderPass, ShaderPass, FXAAShader } from "../base/three-defs.js";
 import gammaVert from "../shaders/gamma.vert?raw";
 import gammaFrag from "../shaders/gamma.frag?raw";
 import {
@@ -20,8 +20,8 @@ import {
   WebGLRenderer,
   WebGLRenderTarget,
 } from "three";
-import { camera, canvasHeight, canvasWidth } from "../global/camera.js";
-import { scene } from "../global/scene.js";
+import { camera, canvasHeight, canvasWidth } from "./camera.js";
+import { scene } from "./scene.js";
 
 const LIGHT_INTENSITY = 0.7;
 const LIGHT_COLOUR = new Color().setRGB(0.52, 0.66, 0.99, SRGBColorSpace);
