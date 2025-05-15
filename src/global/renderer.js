@@ -23,10 +23,6 @@ import {
 import { camera, canvasHeight, canvasWidth } from "./camera.js";
 import { scene } from "./scene.js";
 
-const LIGHT_INTENSITY = 0.7;
-const LIGHT_COLOUR = new Color().setRGB(0.52, 0.66, 0.99, SRGBColorSpace);
-// const LIGHT_FAR = 1000.0;
-
 const GammaCorrectionShader2 = {
   name: "GammaCorrectionShader2",
   uniforms: {
@@ -47,27 +43,6 @@ renderer.setSize(canvasWidth, canvasHeight);
 renderer.outputColorSpace = LinearSRGBColorSpace;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = PCFSoftShadowMap;
-
-const light = new DirectionalLight(0xffffff, LIGHT_INTENSITY);
-light.position.set(-20, 20, 20);
-light.target.position.set(0, 0, 0);
-light.color.copy(LIGHT_COLOUR);
-scene.add(light);
-scene.add(light.target);
-// VIDEO HACK
-light.castShadow = true;
-light.shadow.bias = -0.001;
-light.shadow.mapSize.width = 4096;
-light.shadow.mapSize.height = 4096;
-light.shadow.camera.near = 1.0;
-light.shadow.camera.far = 100.0;
-light.shadow.camera.left = 32;
-light.shadow.camera.right = -32;
-light.shadow.camera.top = 32;
-light.shadow.camera.bottom = -32;
-const lightDir = light.position.clone();
-lightDir.normalize();
-lightDir.multiplyScalar(-1);
 
 const bufferParams = {
   type: HalfFloatType,

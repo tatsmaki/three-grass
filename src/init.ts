@@ -5,12 +5,13 @@ import { render, renderer } from "./global/renderer";
 import { scene } from "./global/scene";
 import { camera } from "./global/camera";
 import { renderSky, sky } from "./objects/sky";
+import { dirLight } from "./objects/dir_light";
 
 export const init = () => {
   const terrain = createTerrain();
   const grass = createGrass();
 
-  scene.add(sky, hemiLight, terrain, grass);
+  scene.add(sky, hemiLight, dirLight, terrain, grass);
 
   let prevTime = 0;
 
